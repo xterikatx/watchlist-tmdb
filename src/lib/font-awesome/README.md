@@ -1,0 +1,1 @@
+### Como visto na pasta, aqui fica os estilos do font-awesom
