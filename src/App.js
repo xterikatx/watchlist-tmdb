@@ -5,6 +5,7 @@ import {Watchlist} from './components/Watchlist'
 import {Watched} from './components/Watched'
 import {Add} from './components/Add'
 import './lib/font-awesome/css/all.min.css'
+require('dotenv').config()
 
 function App() {
     return (
