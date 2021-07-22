@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 export const MovieControls = ({ type, movie }) => {

@@ -1,42 +1,65 @@
-import { useContext } from 'react';
-import moment from 'moment'
-import { GlobalContext } from '../context/GlobalState';
+import React, { useContext } from "react";
+import Moment from "react-moment";
+import { GlobalContext } from "../context/GlobalState";
 
 export const ResultCard = ({ movie }) => {
-    const {addMovieToWatchlist, watchlist} = useContext(GlobalContext)
+    const {
+        addMovieToWatchlist,
+        addMovieToWatched,
+        watchlist,
+        watched,
+    } = useContext(GlobalContext);
 
-    let storedMovie = watchlist.find(objects => objects.id === movie.id);
+    let storedMovie = watchlist.find((o) => o.id === movie.id);
+    let storedMovieWatched = watched.find((o) => o.id === movie.id);
 
-    const watchlistDisabled = storedMovie ? true : false
+    const watchlistDisabled = storedMovie
+        ? true
+        : storedMovieWatched
+            ? true
+            : false;
+
+    const watchedDisabled = storedMovieWatched ? true : false;
 
     return (
         <div className="result-card">
             <div className="poster-wrapper">
                 {movie.poster_path ? (
-                    <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={`${movie.title} Poster`} />
+                    <img
+                        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                        alt={`${movie.title} Poster`}
+                    />
                 ) : (
                     <div className="filler-poster" />
                 )}
             </div>
+
             <div className="info">
                 <div className="header">
                     <h3 className="title">{movie.title}</h3>
-                    {!!movie.release_date ? (
-                        <h4 className="release-date">Data de lançamento: <b>{moment(movie.release_date).format('L')}</b></h4>
-                    ) : (
-                        <h4 className="release-date">Sem informações sobre a data de lançamento 😭</h4>
-                    )}
+                    <h4 className="release-date">
+                        <Moment format="YYYY">{movie.release_date}</Moment>
+                    </h4>
                 </div>
+
                 <div className="controls">
                     <button
                         className="btn"
-                        onClick={() => addMovieToWatchlist(movie)}
                         disabled={watchlistDisabled}
+                        onClick={() => addMovieToWatchlist(movie)}
                     >
-                        Adicionar
+                        Desejo assistir
+                    </button>
+
+                    <button
+                        className="btn"
+                        disabled={watchedDisabled}
+                        onClick={() => addMovieToWatched(movie)}
+                    >
+                       Assisti
                     </button>
                 </div>
             </div>
         </div>
-    )
+    );
 };

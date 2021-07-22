@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { MovieCard } from "./MovieCard";
 
@@ -9,10 +9,10 @@ export const Watchlist = () => {
     <div className="movie-page">
       <div className="container">
         <div className="header">
-          <h1 className="heading">Minha lista de filmes</h1>
+          <h1 className="heading">Lista de desejos</h1>
 
           <span className="count-pill">
-            {watchlist.length} {watchlist.length === 1 ? "Filme" : "Filmes"}
+            {watchlist.length} {watchlist.length === 1 ? "Movie" : "Movies"}
           </span>
         </div>
 
@@ -23,7 +23,7 @@ export const Watchlist = () => {
             ))}
           </div>
         ) : (
-          <h2 className="no-movies">Sem filmes aqui, experimente adicionar um =)</h2>
+          <h2 className="no-movies">Sem filmes aqui! Experimente adicionar um. =/</h2>
         )}
       </div>
     </div>
