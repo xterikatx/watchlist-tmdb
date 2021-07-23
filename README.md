@@ -9,4 +9,4 @@
 2. `npm start` ou `yarn start`
 
 
-(Link do Projeto)[https://watchlist-tmdb-j4z03p40j-erikalopes.vercel.app/]
+[Link do Projeto](https://watchlist-tmdb-j4z03p40j-erikalopes.vercel.app/)
