@@ -12,7 +12,7 @@ export const Watchlist = () => {
           <h1 className="heading">Lista de desejos</h1>
 
           <span className="count-pill">
-            {watchlist.length} {watchlist.length === 1 ? "Movie" : "Movies"}
+            {watchlist.length} {watchlist.length === 1 ? "Filme" : "Filmes"}
           </span>
         </div>
 
